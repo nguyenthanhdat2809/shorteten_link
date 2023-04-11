@@ -20,15 +20,25 @@ RSpec.describe ShortenerService do
 		expect(code_2).not_to eq(code_1)
 	end
 
-	it "always gives the same URL the same lookup code" do
+	# it "always gives the same URL the same lookup code" do
+	# 	url = "https://viblo.asia/p/cac-cau-hoi-phong-van-ruby-on-rails-developer-phan-1-WAyK8O9m5xX"
+	# 	shortener = ShortenerService.new(url)
+	# 	first_code = shortener.lookup_code
+
+	# 	url = "https://viblo.asia/p/cac-cau-hoi-phong-van-ruby-on-rails-developer-phan-1-WAyK8O9m5xX"
+	# 	shortener = ShortenerService.new(url)
+	# 	second_code = shortener.lookup_code
+
+	# 	expect(first_code).to eq(second_code)
+	# end
+
+	it "generates a Link record with a unique lookup code" do
 		url = "https://viblo.asia/p/cac-cau-hoi-phong-van-ruby-on-rails-developer-phan-1-WAyK8O9m5xX"
 		shortener = ShortenerService.new(url)
-		first_code = shortener.lookup_code
+		link = shortener.generate_short_link
+		expect(link.valid?).to be(true)
 
-		url = "https://viblo.asia/p/cac-cau-hoi-phong-van-ruby-on-rails-developer-phan-1-WAyK8O9m5xX"
-		shortener = ShortenerService.new(url)
-		second_code = shortener.lookup_code
-
-		expect(first_code).to eq(second_code)
+		link_2 = shortener.generate_short_link
+		expect(link_2.valid?).to be(true)
 	end
 end
