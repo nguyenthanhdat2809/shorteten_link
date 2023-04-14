@@ -1,3 +1,5 @@
 var element = document.getElementById("short-link");
+var input = document.getElementById("link-input");
 var html = "<%= j render 'link', link: @link.short_link %>";
 element.innerHTML = html;
+input.value = "";
