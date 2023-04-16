@@ -3,6 +3,16 @@ class Link < ApplicationRecord
   validates_uniqueness_of :lookup_code
   validate :original_url_formatted
 
+  scope :find_links_nearest, -> { order(created_at: :desc).limit(5) }
+
+  def update_count_clicked
+    update_attribute(:count_clicked, increase)
+  end
+
+  def increase
+    count_clicked + 1
+  end
+
   def short_link
     "http://127.0.0.1:3000/#{lookup_code}"
   end
