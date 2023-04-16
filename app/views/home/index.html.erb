@@ -10,5 +10,24 @@
         <div id="short-link"></div>
       </div>
     </div>
+
+    <div class="lists-url mt-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th colspan="1">Original URL</th>
+            <th colspan="3">Clicked</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @links.each do |link| %>
+            <tr>
+              <td class="col-7"><%= link_to link.short_link, "/#{link.lookup_code}", target: "_blank" %></td>
+              <td class="col-2"><%= link.count_clicked %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

@@ -1,7 +1,10 @@
 class LinksController < ApplicationController
 	def show
 		@link = Link.find_by(lookup_code: params[:lookup_code])
-		redirect_to @link.original_url if @link.present?
+		if @link.present?
+			@link.update_count_clicked
+			redirect_to @link.original_url
+		end
 	end
 
 	def create
