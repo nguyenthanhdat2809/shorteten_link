@@ -8,8 +8,8 @@ class ShortenerService
     @link_model = link_model
   end
 
-  def generate_short_link
-    link_model.create(original_url: url, lookup_code: lookup_code)
+  def generate_short_link(user)
+    link_model.create(original_url: url, lookup_code: lookup_code, user_id: user.id)
   end
 
   def lookup_code

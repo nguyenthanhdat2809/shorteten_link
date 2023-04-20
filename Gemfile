@@ -29,6 +29,7 @@ group :development do
   gem 'pry'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop-rails', require: false
+  gem 'devise'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
