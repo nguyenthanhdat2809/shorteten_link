@@ -20,7 +20,7 @@ class Link < ApplicationRecord
   private
 
   def original_url_formatted
-    uri = URI.parse(original_url || "")
-    errors.add(:original_url, "Invalid URL format") if uri.host.nil?
+    uri = URI.parse(original_url || '')
+    errors.add(:original_url, 'Invalid URL format') if uri.host.nil?
   end
 end
