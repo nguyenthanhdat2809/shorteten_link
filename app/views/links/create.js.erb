@@ -1,5 +1,7 @@
 var element = document.getElementById("short-link");
 var input = document.getElementById("link-input");
+var linksList = document.getElementById("links-list");
 var html = "<%= j render partial: 'link', locals: { link: @link.short_link } %>";
 element.innerHTML = html;
 input.value = "";
+linksList.innerHTML = "<%=j render partial: "shareds/table", locals: { links: @links } %>"
