@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="px-5 py-2 d-flex justify-content-between">
+    <% if user_signed_in? %>
+      <span class="mr-2"><%= current_user.email %></span>
+      <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    <% end %>
+  </div>
   <div class="p-5">
     <div class="card">
       <div class="card-body">

@@ -1,6 +1,8 @@
 class LinksController < ApplicationController
+  before_action :get_links
+
   def show
-    @link = Link.find_by(lookup_code: params[:lookup_code])
+    @link = current_user.links.find_by(lookup_code: params[:lookup_code])
     return unless @link.present?
 
     @link.update_count_clicked
@@ -8,10 +10,9 @@ class LinksController < ApplicationController
   end
 
   def create
-    original_url = params[:link][:original_url]
+    original_url = link_params[:original_url]
     shortener = ShortenerService.new(original_url)
-    @link = shortener.generate_short_link
-    @links = Link.find_links_nearest
+    @link = shortener.generate_short_link(current_user)
 
     if @link.persisted?
       respond_to :js
@@ -24,5 +25,9 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:original_url)
+  end
+
+  def get_links
+    @links = Link.find_links_nearest
   end
 end
