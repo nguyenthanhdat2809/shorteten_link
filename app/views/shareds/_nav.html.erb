@@ -1,17 +1,14 @@
 <div>
   <nav class="navbar navbar-light bg-light">
     <div>
-      <a class="navbar-brand" href="#">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiewdbLtXhoSVPe2ltd9stCMG1d05c7dqpWQ&usqp=CAU" width="100" height="50" class="d-inline-block align-top" alt="">
-      </a>
+      <%= link_to(image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiewdbLtXhoSVPe2ltd9stCMG1d05c7dqpWQ&usqp=CAU", size: "100x50"), root_path) %>
     </div>
 
-    <div class="px-4">
-      <span class="mr-4">Welcome, <%= current_user.user_name %></span>
-
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <div class="px-4">
+        <span class="mr-4">Welcome, <%= current_user.user_name %></span>
         <%= link_to "logout", destroy_user_session_path, method: :delete, class: "text-decoration-none" %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </nav>
 </div>
