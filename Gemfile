@@ -25,11 +25,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'devise'
   gem 'listen', '~> 3.3'
   gem 'pry'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop-rails', require: false
-  gem 'devise'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end

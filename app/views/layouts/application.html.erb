@@ -12,6 +12,12 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <div class="">
+        <%= render "shareds/nav" %>
+      </div>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
