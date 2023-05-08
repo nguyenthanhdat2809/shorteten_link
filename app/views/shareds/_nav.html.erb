@@ -1,7 +1,7 @@
 <div>
   <nav class="navbar navbar-light bg-light">
-    <div>
-      <%= link_to(image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiewdbLtXhoSVPe2ltd9stCMG1d05c7dqpWQ&usqp=CAU", size: "100x50"), root_path) %>
+    <div class="logo">
+      <%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiewdbLtXhoSVPe2ltd9stCMG1d05c7dqpWQ&usqp=CAU", size: "100x50") %>
     </div>
 
     <% if user_signed_in? %>

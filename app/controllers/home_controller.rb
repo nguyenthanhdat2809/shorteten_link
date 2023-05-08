@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @links = current_user.links.find_links_nearest.page(params[:page]).per(5)
+    @search = current_user.links.ransack(params[:q])
+    @links = @search.result.page(params[:page]).per(params[:limit] || Settings.default_litmit)
   end
 end
