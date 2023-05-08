@@ -10,28 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_420_150_811) do
-  create_table 'links', force: :cascade do |t|
-    t.string 'lookup_code'
-    t.string 'original_url'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'count_clicked', default: 0
-    t.integer 'user_id'
+ActiveRecord::Schema.define(version: 2023_05_08_140205) do
+
+  create_table "links", force: :cascade do |t|
+    t.string "lookup_code"
+    t.string "original_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "count_clicked", default: 0
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_links_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'user_name', default: '', null: false
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.integer 'status', default: 0, null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
-    t.index ['user_name'], name: 'index_users_on_user_name', unique: true
+  create_table "users", force: :cascade do |t|
+    t.string "user_name", default: "", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.integer "status", default: 0, null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["user_name"], name: "index_users_on_user_name", unique: true
   end
+
 end
