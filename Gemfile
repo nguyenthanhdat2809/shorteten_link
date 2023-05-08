@@ -17,6 +17,9 @@ gem 'net-http'
 gem 'net-imap'
 gem 'net-smtp'
 gem 'uri', '0.10.0'
+gem 'kaminari'
+gem 'ransack'
+gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
