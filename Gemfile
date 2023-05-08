@@ -13,13 +13,14 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootstrap-kaminari-views'
+gem 'config'
+gem 'kaminari'
 gem 'net-http'
 gem 'net-imap'
 gem 'net-smtp'
-gem 'uri', '0.10.0'
-gem 'kaminari'
 gem 'ransack'
-gem 'bootstrap-kaminari-views'
+gem 'uri', '0.10.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

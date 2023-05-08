@@ -10,7 +10,16 @@
         <div id="short-link"></div>
       </div>
     </div>
-    <div id="links-list" class="lists-url mt-4">
+
+    <div class="limit-record mt-2">
+      <%= search_form_for @search, url: root_path do |f|%>
+        <%= select_tag :limit, options_from_collection_for_select(Settings.show_limit, :second, :second,
+        selected: params[:limit]), id: "show-limit", class: "form-select" %>
+        <%= f.submit "search", class: "btn btn-info", style: "display: none; margin-right: 10px"%>
+      <% end %>
+    </div>
+
+    <div id="links-list" class="lists-url mt-2">
       <%= render partial: "shareds/table", locals: { links: @links } %>
     </div>
 
@@ -19,3 +28,5 @@
     </div>
   </div>
 </div>
+
+
