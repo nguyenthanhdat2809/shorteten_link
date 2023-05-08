@@ -2,7 +2,7 @@
   <div class="p-5">
     <div class="card">
       <div class="card-body">
-        <%= form_for @link, remote: true do |form| %>
+        <%= form_for Link.new, remote: true do |form| %>
           <h5 class="card-title">Enter a URL to shorten</h5>
           <%= form.text_field :original_url, id: "link-input", class: "form-control", placeholder: "Enter URL..." %>
           <%= form.submit "Shorten", class: "btn btn-primary mt-2" %>
@@ -12,6 +12,10 @@
     </div>
     <div id="links-list" class="lists-url mt-4">
       <%= render partial: "shareds/table", locals: { links: @links } %>
+    </div>
+
+    <div class="paging">
+      <%= paginate @links %>
     </div>
   </div>
 </div>
