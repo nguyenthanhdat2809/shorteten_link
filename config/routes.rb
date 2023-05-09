@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   resources :links, only: %i[create]
   get '/:lookup_code', to: 'links#show'
+  get 'profile/me', to: 'profile#show'
 end

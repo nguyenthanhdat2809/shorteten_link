@@ -6,4 +6,8 @@ $(document).ready(function(){
   $(".logo").on("click", function() {
     window.location.href = "/";
   })
+
+  $("#edit-profile").on("click", function() {
+    window.location.href = "/users/edit";
+  })
 });
