@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :get_links
+  before_action :get_links, only: %i[create]
 
   def show
     @link = current_user.links.find_by(lookup_code: params[:lookup_code])
@@ -28,6 +28,6 @@ class LinksController < ApplicationController
   end
 
   def get_links
-    @links = Link.find_links_nearest
+    @links = current_user.links
   end
 end
