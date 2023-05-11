@@ -5,8 +5,6 @@ class Link < ApplicationRecord
   validates_uniqueness_of :lookup_code
   validate :original_url_formatted
 
-  scope :find_links_nearest, -> { order(created_at: :desc) }
-
   def update_count_clicked
     update_attribute(:count_clicked, increase)
   end

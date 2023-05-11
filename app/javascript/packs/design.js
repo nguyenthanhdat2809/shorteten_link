@@ -10,4 +10,8 @@ $(document).ready(function(){
   $("#edit-profile").on("click", function() {
     window.location.href = "/users/edit";
   })
+
+  $(".avatar").on("click", function() {
+    window.location.href = "/profile/me";
+  })
 });
