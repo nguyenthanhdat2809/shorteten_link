@@ -28,6 +28,6 @@ class LinksController < ApplicationController
   end
 
   def get_links
-    @links = current_user.links
+    @links = current_user.links.find_links_nearest
   end
 end
