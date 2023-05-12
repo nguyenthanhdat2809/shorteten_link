@@ -55,15 +55,17 @@
               </div>
             </div>
             <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Address</p>
+            <% @user.addresses.each_with_index do |address, index| %>
+              <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Address <%= index + 1 %></p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= address.to_s %></p>
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-              </div>
-            </div>
-          </div>
+            <% end %>
         </div>
         </div>
       </div>
