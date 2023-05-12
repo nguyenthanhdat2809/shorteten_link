@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     super do |resource|
       resource.build_profile
+      resource.addresses.build
     end
   end
 
@@ -45,7 +46,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :email, :password, :current_password,
-      :avatar, profile_attributes: [:first_name, :last_name, :phone_number, :card_id]])
+      :avatar, profile_attributes: [:first_name, :last_name, :phone_number, :card_id], addresses_attributes: [:country, :city, :street]])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
