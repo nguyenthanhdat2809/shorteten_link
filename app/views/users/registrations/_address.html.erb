@@ -1,0 +1,27 @@
+<div class="mt-4">
+  <h6>Address</h6>
+  <div class="card" style="width: 25.5rem;">
+    <ul class="list-group list-group-flush">
+      <%= f.fields_for :address do |g| %>
+      <li class="list-group-item">
+        <div class="form-group mt-2">
+          <%= g.label :country %><br />
+          <%= g.text_field :country, autocomplete: "country", class: "form-control" %>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="form-group mt-2">
+          <%= g.label :city %><br />
+          <%= g.text_field :city, autocomplete: "city", class: "form-control" %>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="form-group mt-2">
+          <%= g.label :street %><br />
+          <%= g.text_field :street, autocomplete: "street", class: "form-control" %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

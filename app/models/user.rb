@@ -3,7 +3,9 @@ class User < ApplicationRecord
 
   has_many :links, dependent: :destroy
   has_one :profile, dependent: :destroy
+  has_many :addresses, dependent: :destroy
   accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :addresses
   has_one_attached :avatar
 
   devise :database_authenticatable, :registerable,
